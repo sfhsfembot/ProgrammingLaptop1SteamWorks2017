@@ -49,7 +49,6 @@ public class GearPiston extends Subsystem {
     
     public void closeGear()
     {
-    	//flapperRelease.set(Value.kForward);
     	gearSolenoid.set(Value.kReverse);
     }
     // Causes piston to close therefore the gear mechanism opens to release the gear in it.
@@ -60,7 +59,7 @@ public class GearPiston extends Subsystem {
     	gearSolenoid.set(Value.kOff);
     }
     //air is turned off on gear mechanism
-    //flapper can now reset itself
+    //gearSolenoid can now reset itself
     //APO 2/21/2017
     
     public void openGear()

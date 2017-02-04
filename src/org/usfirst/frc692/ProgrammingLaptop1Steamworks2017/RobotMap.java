@@ -36,6 +36,7 @@ public class RobotMap {
     public static RobotDrive driveTrainRobotDrive41;
     public static DoubleSolenoid dumpTruckDumpTruckPistonOne;
     public static DoubleSolenoid dumpTruckDumpTruckPistonTwo;
+    public static SpeedController dumpTruckDumpTruckSpeedController;
     public static DoubleSolenoid gearPistonGearSolenoid;
     public static Compressor pneumaticsCompressor;
     public static SpeedController climberClimber;
@@ -69,6 +70,9 @@ public class RobotMap {
         
         dumpTruckDumpTruckPistonTwo = new DoubleSolenoid(0, 4, 5);
         LiveWindow.addActuator("DumpTruck", "DumpTruckPistonTwo", dumpTruckDumpTruckPistonTwo);
+        
+        dumpTruckDumpTruckSpeedController = new VictorSP(5);
+        LiveWindow.addActuator("DumpTruck", "DumpTruckSpeedController", (VictorSP) dumpTruckDumpTruckSpeedController);
         
         gearPistonGearSolenoid = new DoubleSolenoid(0, 0, 1);
         LiveWindow.addActuator("GearPiston", "GearSolenoid", gearPistonGearSolenoid);
