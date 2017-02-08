@@ -48,18 +48,25 @@ public class Climber extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
-//    public void climberUp()
-//    {
-//    	climber.set(1.0);
-//    }
-//    // Give motor 100% power up to climb up.
-//    // APO 1/26/17
-//    
-//    public void climberStop()
-//    {
-//    	climber.set(0.0);
-//    }
-//    // When button is not pressed don't don't do anything.
-//    // APO 1/26/17
+    public void climberUp()
+    {
+    	climber.set(1.0);
+    }
+    // Give motor 100% power up to climb up.
+    // APO 1/26/17
+    
+    public void climberStop()
+    {
+    	climber.set(0.0);
+    }
+    // When button is not pressed don't don't do anything.
+    // APO 1/26/17
+    
+    public void climberDown()
+    {
+    	climber.set(-1.0);
+    }
+    // Give motor 100% power to climb down
+    // APO 2/7/17
 }
 
