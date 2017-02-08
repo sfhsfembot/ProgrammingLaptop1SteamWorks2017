@@ -42,7 +42,7 @@ public class DumpTruckMotor extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.dumpTruck.dumpTruckSpeedController();
+//    	Robot.dumpTruck.dumpTruckSpeedController();
     }
     // calls for the dumpTruckSpeedController method (check driveTrain subsystem)
     // For Katie K's low goal design

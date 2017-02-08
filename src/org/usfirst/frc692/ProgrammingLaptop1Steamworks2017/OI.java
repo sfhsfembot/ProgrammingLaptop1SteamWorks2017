@@ -60,8 +60,6 @@ public class OI {
     public Joystick oneStickDrive;
     public JoystickButton gearCloseButtonA;
     public JoystickButton gearOpenButtonB;
-    public JoystickButton dumpButtonX;
-    public JoystickButton dumpResetButtonY;
     public JoystickButton climbUpButtonLB;
     public JoystickButton climbDownButtonRB;
     public JoystickButton corkscrewButtonUpY;
@@ -83,10 +81,6 @@ public class OI {
         climbDownButtonRB.whileHeld(new ClimbDown());
         climbUpButtonLB = new JoystickButton(gamepad, 5);
         climbUpButtonLB.whileHeld(new ClimbUp());
-        dumpResetButtonY = new JoystickButton(gamepad, 4);
-        dumpResetButtonY.whenPressed(new DumpTruckReset());
-        dumpButtonX = new JoystickButton(gamepad, 3);
-        dumpButtonX.whenPressed(new DumpTruckUnload());
         gearOpenButtonB = new JoystickButton(gamepad, 2);
         gearOpenButtonB.whenPressed(new GearOpen());
         gearCloseButtonA = new JoystickButton(gamepad, 1);
