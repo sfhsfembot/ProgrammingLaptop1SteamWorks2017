@@ -49,31 +49,31 @@ public class SwitchCamera extends Command {
     	
     	
     	// UNCOMMENT AFTER TESTING WITH PNEUMATICS
-//    	SmartDashboard.putBoolean("Joystick Button is pressed!", Robot.oi.switchCameraButtonOne.get());
-//    	// smart dash board prints out "Joystick button is pressed"
-//    	// KK 2/20/16
-//    	
-//    	if(Robot.oi.switchCameraButtonOne.get()) 
-//    	{
-//    		// this button will switch between the two cameras
-//    		// KK 2/20/16
-//    		if(Robot.currSession == Robot.sessionfront) {
-//    			NIVision.IMAQdxStopAcquisition(Robot.currSession);
-//    			Robot.currSession = Robot.sessionback;
-//    			NIVision.IMAQdxConfigureGrab(Robot.currSession);
-//    		}
-//    		// if power is sent to camera one image will display on camera one
-//    		// KK 2/20/16
-//  
-//    		else if(Robot.currSession == Robot.sessionback)
-//    		{
-//    			NIVision.IMAQdxStopAcquisition(Robot.currSession);
-//    			Robot.currSession = Robot.sessionfront;
-//    			NIVision.IMAQdxConfigureGrab(Robot.currSession);
-//    		}
-//    		// if power is not sent to camera one display image will be on camera two
-//    		// KK 2/20/16
-//    	}
+    	SmartDashboard.putBoolean("Joystick Button is pressed!", Robot.oi.switchCameraButtonOne.get());
+    	// smart dash board prints out "Joystick button is pressed"
+    	// KK 2/20/16
+    	
+    	if(Robot.oi.switchCameraButtonOne.get()) 
+    	{
+    		// this button will switch between the two cameras
+    		// KK 2/20/16
+    		if(Robot.currSession == Robot.sessionfront) {
+    			NIVision.IMAQdxStopAcquisition(Robot.currSession);
+    			Robot.currSession = Robot.sessionback;
+    			NIVision.IMAQdxConfigureGrab(Robot.currSession);
+    		}
+    		// if power is sent to camera one image will display on camera one
+    		// KK 2/20/16
+  
+    		else if(Robot.currSession == Robot.sessionback)
+    		{
+    			NIVision.IMAQdxStopAcquisition(Robot.currSession);
+    			Robot.currSession = Robot.sessionfront;
+    			NIVision.IMAQdxConfigureGrab(Robot.currSession);
+    		}
+    		// if power is not sent to camera one display image will be on camera two
+    		// KK 2/20/16
+    	}
     }
 
     
