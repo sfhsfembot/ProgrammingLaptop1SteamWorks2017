@@ -59,7 +59,7 @@ public class DriveTrain extends Subsystem {
     
     public void moveForwardAuton()
     {
-    	robotDrive41.drive(1, 0);
+    	robotDrive41.drive(1.0, 0.0);
     }
     // DriveTrain moves forward at 100% power.
     // HSH 1-14-17
@@ -68,23 +68,24 @@ public class DriveTrain extends Subsystem {
     
     public void robotStopAuton()
     {
-    	robotDrive41.drive(0, 0);
+    	robotDrive41.drive(0.0, 0.0);
     }
     // DriveTrain doesn't move when joysticks aren't touched
     // HSH 1-14-17
     // Update: changed this for Auton code use (check the Autonomous Command)
     // APO 2/4/17
     
-//    public void takeJoystickAxisValues(double leftDrive, double rightDrive)
-//    {
-//    	robotDrive41.tankDrive(leftDrive,rightDrive);
-//    }
+    public void takeJoystickAxisValues(double leftDrive, double rightDrive)
+    {
+    	robotDrive41.tankDrive(leftDrive,rightDrive);
+    }
 //     Grabbed values of leftDrive and rightDrive train
 //     TTT 1-14-2017
     
-    
-    
-    
+    public void autonMoveForward(double speed)
+    {
+    	robotDrive41.drive(speed, 0);
+    }
     
     
     // UNCOMMENT AFTERTESTING PPNEUMATICS
@@ -94,19 +95,19 @@ public class DriveTrain extends Subsystem {
 		double temp;
 		
 		// Squaring and deadzones for cartesian (X, Y, and Twist(Z)) values
-				if(value > deadzone)
-				{
-					temp = value*value;
-				}
-				else if(value < -deadzone)
-				{
-					temp = -value*value;
-				}
-				else
-				{
-					temp = 0;
-				}
-		
+		if(value > deadzone)
+		{
+			temp = value * value;
+		}
+		else if(value < -deadzone)
+		{
+			temp = -value * value;
+		}
+		else
+		{
+			temp = 0;
+		}
+
 		return temp;
 	}
 	
@@ -122,55 +123,17 @@ public class DriveTrain extends Subsystem {
 		y = joystickAdjust(oneStickDrive.getY(), deadzone);
 		//twist = joystickAdjust(joystickP0.getTwist(), deadzone);
 		
-		twist = twist/-1.25;
+		twist = twist/-1.0;
 		y = -y;
 		
 		if(OI.pMode == true)
 		{
-			robotDrive41.arcadeDrive(y/1.5, twist/1.5);
+			robotDrive41.arcadeDrive(y/1.0, twist/1.0);
 		}
 		else
 		{
 			robotDrive41.arcadeDrive(y, twist);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//	}
-//    public void takeOneJoystickAxisValue(GenericHID oneStickDrive)
-//    {
-//    	robotDrive41.arcadeDrive(oneStickDrive);
-//    }
-//    // 1st attempt for 1 driveStickDrive
-//    // APO 1/21/17
-		
-//    public void moveForwardOneJoystick() {
-//    	robotDrive41.mecanumDrive_Cartesian(0.0, 0.3, 0.0, 0.0);
-//    }
-//    
-//    public void moveBackwardOneJoystick() {
-//    	robotDrive41.mecanumDrive_Cartesian(0.0, -0.3, 0.0, 0.0);
-//    }
-//    
-//    public void moveLeftOneJoystick() {
-//    	robotDrive41.mecanumDrive_Cartesian(-1.0, 0.0, 0.0, 0.0);
-//    }
-//    
-//    public void moveRightOneJoystick() {
-//    	robotDrive41.mecanumDrive_Cartesian(1.0, 0.0, 0.0, 0.0);
-//    }
-//    
-//    public void stopDriveOneJoystick() {
-//    	robotDrive41.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
-//    }
-    
-    
     }
 	
 }

@@ -57,20 +57,24 @@ public class DriveTrain extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     } 
     
-//    public void moveForward()
+//    public void moveForwardAuton()
 //    {
-//    	robotDrive41.drive(1, 0);
+//    	robotDrive41.drive(1.0, 0.0);
 //    }
 //    // DriveTrain moves forward at 100% power.
 //    // HSH 1-14-17
+//    // Update: changed this for Auton code use (check the Autonomous Command)
+//    // APO 2/4/17
 //    
-//    public void robotStop()
+//    public void robotStopAuton()
 //    {
-//    	robotDrive41.drive(0, 0);
+//    	robotDrive41.drive(0.0, 0.0);
 //    }
 //    // DriveTrain doesn't move when joysticks aren't touched
 //    // HSH 1-14-17
-    
+//    // Update: changed this for Auton code use (check the Autonomous Command)
+//    // APO 2/4/17
+//    
 //    public void takeJoystickAxisValues(double leftDrive, double rightDrive)
 //    {
 //    	robotDrive41.tankDrive(leftDrive,rightDrive);
@@ -78,58 +82,59 @@ public class DriveTrain extends Subsystem {
 //     Grabbed values of leftDrive and rightDrive train
 //     TTT 1-14-2017
     
-    
-    
-    
+    public void autonMoveForward(double speed)
+    {
+    	robotDrive41.drive(speed, 0);
+    }
     
     
     // UNCOMMENT AFTERTESTING PPNEUMATICS
-//    
-//    private double joystickAdjust(double value, double deadzone)
-//	{
-//		double temp;
-//		
-//		// Squaring and deadzones for cartesian (X, Y, and Twist(Z)) values
-//				if(value > deadzone)
-//				{
-//					temp = value*value;
-//				}
-//				else if(value < -deadzone)
-//				{
-//					temp = -value*value;
-//				}
-//				else
-//				{
-//					temp = 0;
-//				}
-//		
-//		return temp;
-//	}
-//	
-//	public void driveWithJoystick(Joystick oneStickDrive)
-//	{
-//		
-//		final double deadzone = .0125; // amount of deadspace around center
-//		double x/* = joystickP0.getX()*/;
-//		double y/* = joystickP0.getY()*/;
-//		double twist = oneStickDrive.getTwist(); //z-axis of Joystick
-//		
-//		x = joystickAdjust(oneStickDrive.getX(), deadzone);
-//		y = joystickAdjust(oneStickDrive.getY(), deadzone);
-//		//twist = joystickAdjust(joystickP0.getTwist(), deadzone);
-//		
-//		twist = twist/-1.25;
-//		y = -y;
-//		
-//		if(OI.pMode == true)
-//		{
-//			robotDrive41.arcadeDrive(y/1.5, twist/1.5);
-//		}
-//		else
-//		{
-//			robotDrive41.arcadeDrive(y, twist);
-//		}
-//		
+    
+    private double joystickAdjust(double value, double deadzone)
+	{
+		double temp;
+		
+		// Squaring and deadzones for cartesian (X, Y, and Twist(Z)) values
+				if(value > deadzone)
+				{
+					temp = value*value;
+				}
+				else if(value < -deadzone)
+				{
+					temp = -value*value;
+				}
+				else
+				{
+					temp = 0;
+				}
+		
+		return temp;
+	}
+	
+	public void driveWithJoystick(Joystick oneStickDrive)
+	{
+		
+		final double deadzone = .0125; // amount of deadspace around center
+		double x/* = joystickP0.getX()*/;
+		double y/* = joystickP0.getY()*/;
+		double twist = oneStickDrive.getTwist(); //z-axis of Joystick
+		
+		x = joystickAdjust(oneStickDrive.getX(), deadzone);
+		y = joystickAdjust(oneStickDrive.getY(), deadzone);
+		//twist = joystickAdjust(joystickP0.getTwist(), deadzone);
+		
+		twist = twist/-1.25;
+		y = -y;
+		
+		if(OI.pMode == true)
+		{
+			robotDrive41.arcadeDrive(y/1.5, twist/1.5);
+		}
+		else
+		{
+			robotDrive41.arcadeDrive(y, twist);
+		}
+		
 		
 		
 		

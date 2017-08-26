@@ -38,22 +38,26 @@ public class DumpTruckCorkscrewReset extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.dumpTruck.screwReset();
+    	
     }
     // calls the screwReset method from the dumpTruck subsystem
     // APO 2/11/17
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(! Robot.dumpTruck.lowerLimitSwitch()){
+    		Robot.dumpTruck.screwReset();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return Robot.dumpTruck.lowerLimitSwitch();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+ //   	Robot.dumpTruck.stop();
     }
 
     // Called when another command which requires one or more of the same

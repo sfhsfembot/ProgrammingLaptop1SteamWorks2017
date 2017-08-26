@@ -12,6 +12,8 @@
 package org.usfirst.frc692.ProgrammingLaptop1Steamworks2017.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc692.ProgrammingLaptop1Steamworks2017.Robot;
 
 /**
@@ -42,6 +44,8 @@ public class ClimbUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	SmartDashboard.putString( "Jay", "#3" );
+
     	Robot.climber.climberUp();
     }
     // calls for the climberUp method from the climber subsystem 

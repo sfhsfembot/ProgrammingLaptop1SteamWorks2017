@@ -37,14 +37,14 @@ public class AutonomousCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(2.5);
+//    	setTimeout(2.5);
     }
     // sets an amount of time for the driveTrain motors to move forward 
     // APO 2/4/17
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.moveForwardAuton();
+//    	Robot.driveTrain.moveForwardAuton();
     }
     // calls for the moveForwardAuton method in driveTrain
     // executes this method (check driveTrain subsystem to see what this method does)
@@ -52,14 +52,14 @@ public class AutonomousCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return true;
     }
     // ends setTimeOut method
     // APO 2/4/17
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.robotStopAuton();
+//    	Robot.driveTrain.robotStopAuton();
     }
     // calls for the robotStopAuton method in driveTrain 
     // executes this method (check driveTrain subsystem to see what this method does)

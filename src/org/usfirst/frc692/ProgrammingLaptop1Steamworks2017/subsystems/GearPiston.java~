@@ -11,12 +11,14 @@
 
 package org.usfirst.frc692.ProgrammingLaptop1Steamworks2017.subsystems;
 
+import org.usfirst.frc692.ProgrammingLaptop1Steamworks2017.OI;
 import org.usfirst.frc692.ProgrammingLaptop1Steamworks2017.RobotMap;
 import org.usfirst.frc692.ProgrammingLaptop1Steamworks2017.commands.*;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -45,11 +47,12 @@ public class GearPiston extends Subsystem {
 
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
+//    	gearSolenoid.set(Value.kOff);
     }
     
     public void closeGear()
     {
-    	//flapperRelease.set(Value.kForward);
+    	SmartDashboard.putString("button is pressed", "true");
     	gearSolenoid.set(Value.kReverse);
     }
     // Causes piston to close therefore the gear mechanism opens to release the gear in it.
@@ -60,11 +63,12 @@ public class GearPiston extends Subsystem {
     	gearSolenoid.set(Value.kOff);
     }
     //air is turned off on gear mechanism
-    //flapper can now reset itself
-    //APO 2/21/2017
+    //gearSolenoid can now reset itself
+    //APO 1/21/2017
     
     public void openGear()
     {
+    	SmartDashboard.putString("button is pressed", "false");
     	gearSolenoid.set(Value.kForward);
     }
     // Causes piston to open therefore the gear mechanism closes and the gear is held in place.
